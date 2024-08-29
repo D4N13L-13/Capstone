@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 # Configuring the URL patterns for  project.
+# Routing incoming URLs to the appropriate views in project.
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('polls.urls')),
