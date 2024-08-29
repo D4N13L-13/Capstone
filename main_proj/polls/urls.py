@@ -1,6 +1,8 @@
 from django.urls import path, re_path
 from . import views
 
+# Defining URL patterns for a Django application
+# named 'polls'.
 app_name = 'polls'
 urlpatterns = [
     path('', views.index, name='index'),
