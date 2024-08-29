@@ -87,7 +87,7 @@ def signup(request):
     """
     The `signup` function in Python returns a rendered `signup.html`
     template in response to a request.
-    
+
     :param request: The `request` parameter in the `signup` function is
         typically an HttpRequest object that represents the request made
         by a user to the server. It contains information about the
