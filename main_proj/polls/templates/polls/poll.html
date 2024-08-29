@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Polls-App</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            .navbar-brand {
+                font-weight: bold;
+            }
+            .header-title {
+                margin-top: 1rem;
+            }
+            .wrapper{
+                display:grid;
+                grid-template-columns: 24% 50% 24%;
+                grid-gap: 1em;
+                border: 3px solid #000000;
+                padding: 1em;
+            }
+
+            .sub_left{
+                display:grid;
+                grid-template-rows: 50% 50%;
+            }
+
+            .wrapper > div{
+                background:#ffffff;
+                padding:1em;
+            }
+
+            .wrapper > div:nth-child(odd){
+                background: #ddd;
+            }
+        </style>
+    </head>
+
+    <body>
+        {% comment %} Header Section {% endcomment %}
+        <header class="bg-primary text-Black text-center py-1">
+            <div class="container" style="border-bottom: 5px solid #000000;">
+                <h1 class="display-5 header-title">
+                    Polls
+                </h1>
+                <div style="text-align: left">
+                    <a href="{% url 'home' %}" style="color:black">Back</a>
+                </div>
+            </div>
+        </header>
+        {% comment %} Body Section {% endcomment %}
+
+        <div class="wrapper">
+            <div class="sub_left">
+            </div>
+
+            <div>
+                {% if latest_question_list %}
+                    <ol style="text-align: left; font-size: 1cap; border: 100cap #000000;">
+
+                {% for question in latest_question_list %}
+
+                    <li style="font-size: 3cap; border: 100cap #000000;">
+                        <a href = "{% url 'polls:detail' question.id %}">
+                        {{ question.question_text }}
+                        </a>
+                    </li>
+                {% endfor %}
+                    </ol>
+
+                {% else %}
+                    <p>No polls are available.</p>
+
+                {% endif %}
+            </div>
+
+            <div class="sub_right">
+
+            </div>
+
+        </div>
+    </body>
+
+{% comment %} {% endcomment %}

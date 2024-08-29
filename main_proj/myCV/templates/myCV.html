@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MyCV</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            .navbar-brand {
+                font-weight: bold;
+            }
+            .header-title {
+                margin-top: 1rem;
+            }
+            .wrapper{
+                display:grid;
+                grid-template-columns: 24% 50% 24%;
+                grid-gap: 1em;
+                border: 3px solid #000000;
+                padding: 1em;
+            }
+
+            .sub_left{
+                display:grid;
+                grid-template-rows: 50% 50%;
+            }
+
+            .wrapper > div{
+                background:#ffffff;
+                padding:1em;
+            }
+
+            .wrapper > div:nth-child(odd){
+                background: #ddd;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Header Section -->
+        <header class="bg-primary text-Black text-center py-1">
+            <div class="container" style="border-bottom: 5px solid #000000;">
+                <h1 class="display-5 header-title">Daniel Holyoak</h1>
+                <div style="text-align: left">
+                    <a href="{% url 'home' %}" style="color: Black">Back</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Body -->
+        <div class = "wrapper">
+            <div class="sub_left">
+                <div>
+                    <h4><u><b>Contact Details:</b></u></h4>
+                    <u>Phone number:</u> <br> (082)650-9858
+                    <br>
+                    <u>Email:</u><br>danielholyoak9@gmail.com
+                </div>
+            </div>
+            <div>
+
+                <h2><u>My Skills:</u></h2>
+                <ul>
+                    <li><u>Excellent People Skills:</u><br>
+                        Acquired through my job of waiting as I constantly served and
+                        interacted with people(pleasant, impatient and
+                        unreasonable).
+                    </li>
+                    <li><u>Computer Literate:</u><br>
+                        Through taking I.T. at school, The software
+                        engineering course and general use of technology in
+                        my day-to-day life, I can do anything you require on
+                        a computer with ease.
+                    </li>
+                    <li><u>A real hankering for the outdoors:</u><br>
+                        Despite my interest in computers I still find
+                        time and the desire to spend my time with
+                        friends and family outdoors exploring
+                    </li>
+                </ul>
+                <h2><u>My Work Experience:</u></h2>
+                <ul>
+                    <li>2024 - now: Village Bistro Waiter</li>
+                </ul>
+                <h2><u>My Education:</u></h2>
+                <ul>
+                    <li>2005 - 2010: Babbel en Krabbel Nursery</li>
+                    <li>2011 - 2017: Laerskool DoringKloof Primary
+                    School</li>
+                    <li>2017 - 2023: Cornwall Hill College</li>
+                    <li>2024 - Current: Software Engineering Bootcamp</li>
+                </ul>
+            </div>
+            <div>
+
+            </div>
+        </div>
+
+    </body>
+</html>

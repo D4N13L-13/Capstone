@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Details</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            .navbar-brand {
+                font-weight: bold;
+            }
+            .header-title {
+                margin-top: 1rem;
+            }
+            .wrapper{
+                display:grid;
+                grid-template-columns: 24% 50% 24%;
+                grid-gap: 1em;
+                border: 3px solid #000000;
+                padding: 1em;
+            }
+
+            .sub_left{
+                display:grid;
+                grid-template-rows: 50% 50%;
+            }
+
+            .wrapper > div{
+                background:#ffffff;
+                padding:1em;
+            }
+
+            .wrapper > div:nth-child(odd){
+                background: #ddd;
+            }
+        </style>
+    </head>
+    <body>
+        {% comment %} Header Section {% endcomment %}
+        <header class="bg-primary text-Black text-center py-1">
+            <div>
+                <h1 style="text-align: center;">
+                    Details
+                </h1>
+                <div style="text-align: left">
+                    <a href="{% url 'polls:index' %}" style="color:black">Back</a>
+                </div>
+            </div>
+        </header>
+
+        {% comment %} Body Section {% endcomment %}
+        <div class ="wrapper">
+            <div class="sub-left">
+            </div>
+
+            <div>
+                <h2 style = "text-align: center; font-size: 3cap; border: 100cap #000000;border-bottom: 2px solid #000000;">
+                    {{question.question_text}}</h2>
+            
+                    {% if error_message %}
+                        <p><strong>{{error_message}}</strong></p>
+                    {% endif %}
+            
+                    <form action="{% url 'polls:vote' question.id %}" 
+                    method="post" 
+                    style="font-size: 3cap; border: 100cap #000000;border-bottom: 2px solid #000000;">
+                        {% csrf_token %}
+            
+                        {% for choice in question.choice_set.all %}
+                            <input type="radio" name="choice" id="choice {{forloop.counter}}"
+                            value="{{ choice.id }}"/>
+                            <label for="choice {{ forloop.counter }}">
+                            {{ choice.choice_text }}
+                            </label>
+                            <br/>
+                        {% endfor %}
+                        <div style="text-align: center;">
+                            <input type="submit" value="vote" style="text-align: center;"/>
+                        </div>
+                    </form>
+            </div>
+
+            <div>
+            </div>
+        </div>
+    </body>
+</html>
